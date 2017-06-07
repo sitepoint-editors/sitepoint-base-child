@@ -1,0 +1,12 @@
+{
+    "name": "venith/sitepoint-base-child",
+    "authors": [
+        {
+            "name": "Almir Bijedic",
+            "email": "almir.bij@gmail.com"
+        }
+    ],
+    "require": {
+        "google/apiclient": "^2.1"
+    }
+}

@@ -1,0 +1,15 @@
+<link rel="import" href="sitepoint-login.html">
+
+<dom-module id="sitepoint-login-widget">
+  <template>
+    <sitepoint-login isSignedIn="[[isSignedIn]]"></sitepoint-login>
+  </template>
+  <script>
+    Polymer({
+      is: 'sitepoint-login-widget',
+      isSignedIn: {
+        type: String
+      }
+    });
+  </script>
+</dom-module>

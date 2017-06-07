@@ -1,0 +1,22 @@
+{
+  "name": "sitepoint-base-child",
+  "homepage": "https://github.com/scotch-io/scotch-box",
+  "authors": [
+    "Almir Bijedic <almir.bij@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0",
+    "paper-elements": "PolymerElements/paper-elements",
+    "google-signin": "GoogleWebComponents/google-signin#^1.3.7"
+  }
+}

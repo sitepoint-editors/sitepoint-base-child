@@ -1,0 +1,58 @@
+<link rel="import" href="../bower_components/google-signin/google-signin.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+<dom-module id="sitepoint-login">
+  <template>
+    <google-signin
+            id="signin"
+            on-google-signin-success="signIn"
+            on-google-signed-out="signOut"
+            label-signin="Sign-in"
+            client-id="559275657764-9u8r9337bksddqa37os9p81ev5f8sc1i.apps.googleusercontent.com"
+            scopes="email profile openid"></google-signin>
+  </template>
+  <script>
+    Polymer({
+      is: 'sitepoint-login',
+      properties: {
+        logoutUrl: {
+          type: String
+        },
+        isSignedIn: {
+          type: String
+        },
+        token: {
+          type: String
+        }
+      },
+      signIn: function (e) {
+        if (this.isSignedIn === 'false') {
+          this.token = gapi.auth2.getAuthInstance()['currentUser'].get().Zi.id_token;
+
+          let data = {
+            'action': 'verify_token',
+            'id_token': this.token,
+            'nonce': ajax.nonce
+          };
+
+          jQuery.post(ajax.url, data, (response) => {
+            alert('Got this from the server: ' + response);
+            window.location.reload();
+          });
+        }
+      },
+      signOut: function () {
+        if (this.isSignedIn === 'true') {
+          let data = {
+            'action': 'logout_user',
+            'nonce': ajax.nonce
+          };
+
+          jQuery.post(ajax.url, data, () => {
+            window.location.reload();
+          });
+        }
+      }
+    });
+  </script>
+</dom-module>
