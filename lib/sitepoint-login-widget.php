@@ -4,7 +4,7 @@ class SitepointLoginWidget extends WP_Widget {
 
 	function __construct() {
 		// Instantiate the parent object
-		parent::__construct( false, 'Firebase Login' );
+		parent::__construct( false, 'Google Login' );
 	}
 
 	function widget( $args, $instance ) {
