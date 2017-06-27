@@ -1,0 +1,38 @@
+<link rel="import" href="../bower_components/google-map/google-map.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+
+<dom-module id="sitepoint-map">
+  <template>
+    <style>
+      google-map {
+        height: 300px;
+      }
+    </style>
+    <google-map id="spMap"
+                fit-to-marker
+                mouse-events="true"
+                on-google-map-mousemove="trackCoords"
+                on-google-map-mouseout="resetCoords"
+                api-key="[[clientId]]">
+      <google-map-marker latitude="37.78"
+                         longitude="-122.4"
+                         draggable="true"></google-map-marker>
+    </google-map>
+    <paper-input raised id="coords" label="Coordinates"></paper-input>
+  </template>
+  <script>
+    class SitepointMap extends Polymer.Element {
+
+      static get is() { return 'sitepoint-map'; }
+      static get properties() {
+        return {
+          clientId: String
+        }
+      }
+      trackCoords(e) { this.$.coords.value = e.detail.latLng.lat() + ", " + e.detail.latLng.lng(); }
+      resetCoords() { this.$.coords.value = "" }
+    }
+
+    window.customElements.define(SitepointMap.is, SitepointMap);
+  </script>
+</dom-module>
