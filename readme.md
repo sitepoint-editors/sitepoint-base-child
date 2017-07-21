@@ -1,12 +1,3 @@
-## Installation
-
-```bash
-bower install
-```
-
-
-
-
 # Using Polymer in WordPress: Build a Custom Google Maps Component
 
 Almir Bijedic demonstrates how to use the Polymer library to create a custom Google Maps component and embed it into a WordPress site as a handy widget.
